@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/button_margin"
         android:layout_marginEnd="@dimen/button_margin"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/colorSecondaryAccent"
         android:text="@string/ask_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/button_margin"
         android:layout_marginStart="@dimen/button_margin"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@color/colorSecondaryAccent"
         android:text="@string/save_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -85,7 +85,7 @@
         android:layout_marginStart="@dimen/temp_margin"
         android:layout_marginTop="@dimen/temp_margin"
         android:text="@string/standard_temp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
         android:textSize="@dimen/temp_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
