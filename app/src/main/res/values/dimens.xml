@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_parent_margin">16dp</dimen>
+
+    <!--Teen question dimensions-->
+    <dimen name="teen_horizontal_margin">8dp</dimen>
+    <dimen name="teen_top_margin">53dp</dimen>
+    <dimen name="teen_text_size">15sp</dimen>
+
+    <!--Big Shaq-->
+    <dimen name="shaq_image_margin_top">65dp</dimen>
+    <dimen name="shaq_text_margin_top">106dp</dimen>
+    <dimen name="shaq_text_margin_end">60dp</dimen>
+    <dimen name="shaq_text_size">20sp</dimen>
+
+    <!--Buttons & Temperature-->
+    <dimen name="button_margin">16dp</dimen>
+    <dimen name="temp_margin">16dp</dimen>
+    <dimen name="temp_text_size">85sp</dimen>
+
+</resources>

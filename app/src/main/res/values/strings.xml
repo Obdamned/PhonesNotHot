@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Phone\'s not Hot</string>
+
+    <string name="save_button">Save the Heat</string>
+    <string name="ask_button">Is my phone hot?</string>
+    <string name="standard_temp">0°C</string>
+    <string name="question_how_hot">Hey Big Shaq, how hot is my phone?</string>
+
+    <!--Big Shaq Answers-->
+    <string name="phone_never_hot">PHONE NEVER BE HOT</string>
+</resources>
