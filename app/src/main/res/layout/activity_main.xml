@@ -12,6 +12,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="@dimen/standard_parent_margin"
         android:layout_marginTop="@dimen/standard_parent_margin"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/wonderingteen" />
@@ -26,6 +27,7 @@
         android:text="@string/question_how_hot"
         android:textColor="@color/colorPrimaryText"
         android:textSize="@dimen/teen_text_size"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toEndOf="@+id/wondering_teen"
@@ -37,6 +39,7 @@
         android:layout_height="100dp"
         android:layout_marginEnd="@dimen/standard_parent_margin"
         android:layout_marginTop="@dimen/shaq_image_margin_top"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/teen_question"
         app:srcCompat="@drawable/bigshaq" />
@@ -51,6 +54,7 @@
         android:textColor="@color/colorPrimaryText"
         android:textSize="@dimen/shaq_text_size"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/big_shaq"
         app:layout_constraintTop_toBottomOf="@+id/teen_question" />
 
@@ -77,7 +81,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/temp_margin"
@@ -87,6 +91,7 @@
         android:text="@string/standard_temp"
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/temp_text_size"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
