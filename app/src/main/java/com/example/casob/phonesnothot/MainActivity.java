@@ -1,5 +1,6 @@
 package com.example.casob.phonesnothot;
 
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView mBigShaq;
     @BindView(R.id.big_shaq_answer)
     TextView mShaqAnswer;
+    MediaPlayer ShaqSound = new MediaPlayer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public void askTeen() {
         mWonderingTeen.setVisibility(View.VISIBLE);
         mQuestionTeen.setVisibility(View.VISIBLE);
-        ShaqAsync waitSync = new ShaqAsync();
+        WaitAsync waitSync = new WaitAsync();
         waitSync.execute();
     }
 
@@ -52,14 +56,53 @@ public class MainActivity extends AppCompatActivity {
     public void askBigShaq() {
         mBigShaq.setVisibility(View.VISIBLE);
         mShaqAnswer.setVisibility(View.VISIBLE);
+        getRandomSound(ShaqSound);
+        ShaqSound.start();
     }
 
-    public class ShaqAsync extends AsyncTask<Void, Void, Void> {
+    private MediaPlayer getRandomSound(MediaPlayer shaqSound) {
+        Random random = new Random();
+        int randomInt = random.nextInt(10 - 1 + 1) + 1;
+        MediaPlayer ShaqSound = shaqSound;
+
+        switch (randomInt) {
+            case 1:
+                ShaqSound = MediaPlayer.create(this, R.raw.mans_never_be_hot);
+                break;
+            case 2:
+                ShaqSound = MediaPlayer.create(this, R.raw.mans_never_be_hot);
+                break;
+            case 3:
+                ShaqSound = MediaPlayer.create(this, R.raw.mans_never_be_hot);
+                break;
+            case 4:
+                ShaqSound = MediaPlayer.create(this, R.raw.mans_never_be_hot);
+                break;
+            case 5:
+                ShaqSound = MediaPlayer.create(this, R.raw.mans_never_be_hot);
+                break;
+            case 6:
+                ShaqSound = MediaPlayer.create(this, R.raw.mans_never_be_hot);
+                break;
+            case 7:
+                ShaqSound = MediaPlayer.create(this, R.raw.mans_never_be_hot);
+                break;
+            case 8:
+                ShaqSound = MediaPlayer.create(this, R.raw.mans_never_be_hot);
+                break;
+            case 9:
+                ShaqSound = MediaPlayer.create(this, R.raw.mans_never_be_hot);
+                break;
+        }
+        return ShaqSound;
+    }
+
+    public class WaitAsync extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                Thread.sleep(1500);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
