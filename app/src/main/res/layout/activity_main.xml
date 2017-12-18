@@ -49,6 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/shaq_text_margin_end"
+        android:layout_marginStart="@dimen/standard_parent_margin"
         android:layout_marginTop="@dimen/shaq_text_margin_top"
         android:text="@string/phone_never_hot"
         android:textColor="@color/colorPrimaryText"
@@ -56,6 +57,7 @@
         android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/big_shaq"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/teen_question" />
 
     <Button
