@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,7 +21,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.hardware.Sensor.TYPE_LIGHT;
+import static android.hardware.Sensor.TYPE_PRESSURE;
+import static android.hardware.Sensor.TYPE_RELATIVE_HUMIDITY;
+
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
+    private static final String TAG = "Light";
     @BindView(R.id.save_button)
     Button mAskButton;
     @BindView(R.id.ask_button)
@@ -33,11 +39,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     ImageView mBigShaq;
     @BindView(R.id.big_shaq_answer)
     TextView mShaqAnswer;
+    @BindView(R.id.temperature)
+    TextView mTemperature;
 
     private MediaPlayer ShaqSound = new MediaPlayer();
 
     private SensorManager mSensorManager;
-    private Sensor mPhoneTemperature;
+    Sensor mLight;
+    Sensor mPressure;
+    Sensor mHumidity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,30 +56,24 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         ButterKnife.bind(this);
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mPhoneTemperature = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+        mLight = mSensorManager.getDefaultSensor(TYPE_LIGHT);
+        mPressure = mSensorManager.getDefaultSensor(TYPE_PRESSURE);
+        mHumidity = mSensorManager.getDefaultSensor(TYPE_RELATIVE_HUMIDITY);
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mSensorManager.registerListener(this, mPhoneTemperature,
-                SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mPressure, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mHumidity, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(this);
-    }
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
     }
 
     @OnClick(R.id.ask_button)
@@ -129,6 +133,29 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         mQuestionTeen.setVisibility(View.GONE);
         mBigShaq.setVisibility(View.GONE);
         mShaqAnswer.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        Sensor sensor = event.sensor;
+        int mSensor = sensor.getType();
+        switch (mSensor) {
+            case TYPE_LIGHT:
+                int light = (int) event.values[0];
+                Log.i(TAG, "Het amount of light is" + light);
+                String string = String.valueOf(light);
+                mTemperature.setText(string);
+                mTemperature.setVisibility(View.VISIBLE);
+            case TYPE_PRESSURE:
+                //placeholder
+            case TYPE_RELATIVE_HUMIDITY:
+                //placeholder
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 
     public class WaitAsync extends AsyncTask<Void, Void, Void> {
